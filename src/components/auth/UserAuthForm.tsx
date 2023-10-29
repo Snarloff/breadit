@@ -1,6 +1,6 @@
 'use client'
 
-import { Icons } from '@/components/Icons'
+import { Icons } from '@/components/shared/Icons'
 import { Button } from '@/components/ui/Button'
 import { cn } from '@/lib/utils'
 import { signIn } from 'next-auth/react'

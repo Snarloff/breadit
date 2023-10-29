@@ -1,15 +1,17 @@
-import { MiniCreatePost } from '@/components/MiniCreatePost'
+import { MiniCreatePost } from '@/components/post/MiniCreatePost'
+import { PostFeed } from '@/components/post/PostFeed'
+import { INFINITE_SCROLLING_PAGINATION_RESULTS } from '@/config'
 import { getAuthSession } from '@/lib/auth'
 import { db } from '@/lib/db'
 import { notFound } from 'next/navigation'
 
-interface RedditSlugPage {
+interface RedditSlugPageProps {
   params: {
     slug: string
   }
 }
 
-export default async function page({ params: { slug } }: RedditSlugPage) {
+export default async function page({ params: { slug } }: RedditSlugPageProps) {
   const session = await getAuthSession()
 
   const subreddit = await db.subreddit.findFirst({
@@ -25,18 +27,22 @@ export default async function page({ params: { slug } }: RedditSlugPage) {
           subreddit: true,
         },
 
-        take: 2,
+        orderBy: {
+          createdAt: 'desc',
+        },
+
+        take: INFINITE_SCROLLING_PAGINATION_RESULTS,
       },
     },
   })
 
-  if (!subreddit) notFound()
+  if (!subreddit) return notFound()
 
   return (
     <>
       <h1 className="h-14 text-3xl font-bold md:text-4xl">r/{subreddit.name}</h1>
-
       <MiniCreatePost session={session} />
+      <PostFeed initialPosts={subreddit.posts} subredditName={subreddit.name} session={session} />
     </>
   )
 }

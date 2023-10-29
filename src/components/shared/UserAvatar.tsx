@@ -1,4 +1,4 @@
-import { Icons } from '@/components/Icons'
+import { Icons } from '@/components/shared/Icons'
 import { Avatar, AvatarFallback } from '@/components/ui/Avatar'
 import { AvatarProps } from '@radix-ui/react-avatar'
 import { User } from 'next-auth'

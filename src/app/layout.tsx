@@ -1,7 +1,7 @@
 import '@/styles/globals.css'
 
-import { Navbar } from '@/components/Navbar'
 import { Providers } from '@/components/Providers'
+import { Navbar } from '@/components/shared/Navbar'
 import { cn } from '@/lib/utils'
 import { Inter } from 'next/font/google'
 import { Toaster } from 'sonner'
@@ -16,7 +16,7 @@ const inter = Inter({ subsets: ['latin'] })
 export default function RootLayout({ children, authModal }: { children: React.ReactNode; authModal: React.ReactNode }) {
   return (
     <html lang="pt-BR" className={cn(inter.className, 'light bg-white text-slate-900 antialiased')}>
-      <body className="min-h-screen bg-slate-50 pt-12 antialiased">
+      <body className="min-h-screen bg-slate-50 pt-12 antialiased dark:bg-zinc-900">
         <Providers>
           {/* @ts-expect-error server components  */}
           <Navbar />
