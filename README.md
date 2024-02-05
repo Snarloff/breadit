@@ -8,6 +8,9 @@
 
 ![Breadit](https://github.com/Snarloff/breadit/assets/46792575/5be534d3-1692-456a-9d91-7045fcbec4cf)
 
+https://github.com/Snarloff/breadit/assets/46792575/2f8b3c5f-005f-4076-a525-286ddea70837
+
+
 Breadit é um projeto funcional que consiste em um clone da plataforma Reddit. Desenvolvido utilizando Next.js 14, NextAuth para autenticação, Prisma ORM para interação com o banco de dados, Tailwind CSS para estilização, Next Theme para alternância de temas, Shadcn UI para componentes, e outras tecnologias modernas.
 
 ## Funcionalidades
